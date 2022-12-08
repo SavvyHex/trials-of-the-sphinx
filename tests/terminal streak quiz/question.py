@@ -17,3 +17,9 @@ class Question:
             self.ans = self.a * self.b
         elif op == "/":
             self.ans = self.a / self.b
+
+    def __str__(self) -> str:
+        return f"What is {self.a}{self.op}{self.b}?"
+
+    def __repr__(self) -> str:
+        return str(self)
