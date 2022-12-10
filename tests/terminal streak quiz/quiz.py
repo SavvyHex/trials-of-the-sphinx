@@ -1,4 +1,4 @@
-from typing import List
+import time
 from question import Question
 
 class Game:
