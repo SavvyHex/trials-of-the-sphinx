@@ -27,7 +27,7 @@ class Game:
 
     def run(self) -> None:
         print("\nAnswer all questions you can in one minute... Any wrong answer will lead to elimination... Good luck!")
-        for i in range(4,1,-1):
+        for i in range(3,0,-1):
             print(f"{i}...")
             time.sleep(0.5)
         print("GO!\n")
