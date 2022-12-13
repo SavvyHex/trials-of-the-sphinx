@@ -20,15 +20,15 @@ class Game:
         self.game_over()
 
     def enterhighscore(self) -> None:
-        with open("highscore.txt", "w+") as f:
+        with open("highscore.txt", "r+") as f:
             try:
                 highscore = int(f.read())
-            except:
+            except ValueError:
                 highscore = 0
             if highscore < self.score:
-                highscore = self.score
                 print("NEW HIGHSCORE")
-            f.write(str(highscore))
+                open("highscore.txt", "w").close()
+                f.write(str(self.score))
 
     def game_over(self) -> None:
         print("GAME OVER")
