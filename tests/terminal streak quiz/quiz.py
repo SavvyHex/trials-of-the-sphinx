@@ -25,9 +25,9 @@ class Game:
                 highscore = int(f.read())
             except ValueError:
                 highscore = 0
-            if highscore < self.score:
-                print("NEW HIGHSCORE")
-                open("highscore.txt", "w").close()
+        if highscore < self.score:
+            print("NEW HIGHSCORE")
+            with open("highscore.txt", "w") as f:
                 f.write(str(self.score))
 
     def game_over(self) -> None:
