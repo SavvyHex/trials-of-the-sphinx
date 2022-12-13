@@ -1,3 +1,4 @@
+import math
 import os
 import time
 import threading
@@ -19,10 +20,22 @@ class Game:
         time.sleep(60)
         self.game_over()
 
+    def enterhighscore(self) -> None:
+        with open("highscore.txt", "w+") as f:
+            try:
+                highscore = int(f.read())
+            except:
+                highscore = 0
+            if highscore < self.score:
+                highscore = self.score
+                print("NEW HIGHSCORE")
+            f.write(str(highscore))
+
     def game_over(self) -> None:
         print("GAME OVER")
         print(f"The answer was {self.question.ans}")
         print(f"Your score was {self.score}")
+        self.enterhighscore()
         os._exit(0)
 
     def run(self) -> None:
