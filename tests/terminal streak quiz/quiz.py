@@ -3,7 +3,6 @@ import time
 import threading
 
 from question import Question
-from utils import make_fair
 
 class Game:
     def __init__(self) -> None:
@@ -32,7 +31,7 @@ class Game:
 
     def game_over(self) -> None:
         print("GAME OVER")
-        print(f"The answer was {self.question.ans}")
+        print(f"The answer was {self.question.ans_opt}){self.question.ans}")
         print(f"Your score was {self.score}")
         self.enterhighscore()
         os._exit(0)
@@ -49,16 +48,12 @@ class Game:
         timer.start()
         while self.running:
             print(self.question)
-            self.question.ans = make_fair(self.question.ans)
-            self.guess = input()
-            
-            try:
-                self.guess = float(self.guess)
-            except ValueError:
-                print("Please Enter a proper number")
-                self.guess = None
+            self.guess = input().lower()
+            while self.guess not in "abcd":
+                print("Please enter ONLY a, b, c or d")
+                self.guess = input().lower()
 
-            if self.guess == self.question.ans:
+            if self.guess == self.question.ans_opt:
                 print("Correct")
                 self.score += 1
                 self.get_question()
