@@ -29,9 +29,12 @@ class Game:
             with open("highscore.txt", "w") as f:
                 f.write(str(self.score))
 
+    def display_right_ans(self) -> None:
+        print(f"The answer was {self.question.ans_opt}){self.question.ans}")
+
     def game_over(self) -> None:
         print("GAME OVER")
-        print(f"The answer was {self.question.ans_opt}){self.question.ans}")
+        self.display_right_ans()
         print(f"Your score was {self.score}")
         self.enterhighscore()
         os._exit(0)
@@ -60,8 +63,8 @@ class Game:
             elif self.guess == None:
                 self.running = False
             else:
-                self.game_over()
-                self.running = False
+                print("WRONG!!!")
+                self.on_wrong_ans()
 
 if __name__ == "__main__":
     game = Game()
