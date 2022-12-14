@@ -64,7 +64,7 @@ class Game:
                 self.running = False
             else:
                 print("WRONG!!!")
-                self.on_wrong_ans()
+                self.display_right_ans()
 
 if __name__ == "__main__":
     game = Game()
