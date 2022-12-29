@@ -8,7 +8,7 @@ class QuizApp:
         self.score = 0
 
         self.window = Tk()
-        self.window.title("iQuiz App")
+        self.window.title("Trials of the Sphinx")
         self.window.geometry("850x530")
 
         self.display_title()
