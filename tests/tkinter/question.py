@@ -9,6 +9,7 @@ class Question:
         self.b = random.randint(1, 20)
         self.get_ans()
         self.get_options()
+        self.question = f"What is {self.a}{self.op}{self.b}?"
 
     def get_ans(self) -> None:
         op = self.op
@@ -39,7 +40,7 @@ class Question:
         self.ans_opt = chr(self.options.index(self.ans) + 97)
 
     def __str__(self) -> str:
-        return f"""What is {self.a}{self.op}{self.b}?
+        return f"""{self.question}
 a) {self.options[0]}
 b) {self.options[1]}
 c) {self.options[2]}

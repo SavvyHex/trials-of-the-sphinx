@@ -1,4 +1,5 @@
 from tkinter import *
+from question import Question
 
 class QuizApp:
     def __init__(self) -> None:
@@ -32,9 +33,13 @@ class QuizApp:
         self.window.mainloop()
     
     def display_title(self):
-        title = Label(self.window, text="iQuiz Application",
+        title = Label(self.window, text="Trials of the Sphinx",
                         width=50, bg="green", fg="white", font=("ariel", 20, "bold"))
         title.place(x=0, y=2)
+
+    def display_question(self):
+        self.question = Question()
+        self.canvas.itemconfig(self.question_text, text=q_text)
 
 if __name__ == "__main__":
     QuizApp()
