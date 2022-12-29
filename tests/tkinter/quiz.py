@@ -1,8 +1,12 @@
 from tkinter import *
+from tkinter import messagebox
 from question import Question
 
 class QuizApp:
     def __init__(self) -> None:
+
+        self.score = 0
+
         self.window = Tk()
         self.window.title("iQuiz App")
         self.window.geometry("850x530")
@@ -60,13 +64,16 @@ class QuizApp:
             val += 1
 
     def next_btn(self):
-        if self.question.ans == self.user_answer.get():
+        if str(self.question.ans) == str(self.user_answer.get()):
             self.feedback["fg"] = "green"
-            self.feedback["text"] = 'Correct answer! \U0001F44D'
+            self.feedback["text"] = 'Correct answer!'
+            self.score += 1
+            self.display_question()
+            self.display_options()
         else:
             self.feedback['fg'] = 'red'
-            self.feedback['text'] = ('\u274E Oops! \n'
-                                        f'The right answer is: {self.question.ans}')
+            self.feedback['text'] = (f'WRONG! The right answer is: {self.question.ans}')
+            self.display_result()
 
     def buttons(self):
         next_button = Button(self.window, text="Next", command=self.next_btn,
@@ -75,6 +82,9 @@ class QuizApp:
         quit_button = Button(self.window, text="Quit", command=self.window.destroy,
                             width=5, bg="red", fg="white", font=("ariel", 16, " bold"))
         quit_button.place(x=700, y=50)
+
+    def display_result(self):
+        messagebox.showinfo("SCORE", f"Your score was {self.score}")
 
 if __name__ == "__main__":
     QuizApp()
