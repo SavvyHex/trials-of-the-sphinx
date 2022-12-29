@@ -73,6 +73,7 @@ class QuizApp:
             self.feedback['fg'] = 'red'
             self.feedback['text'] = (f'WRONG! The right answer is: {self.question.ans}')
             self.display_result()
+            self.score = 0
 
     def buttons(self):
         next_button = Button(self.window, text="Next", command=self.next_btn,
