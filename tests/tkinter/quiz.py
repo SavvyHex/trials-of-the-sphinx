@@ -14,13 +14,7 @@ class QuizApp:
         self.display_title()
 
         self.canvas = Canvas(width=800, height=250)
-        self.question_text = self.canvas.create_text(400, 125,
-                                                     text="Question here",
-                                                     width=680,
-                                                     fill="black",
-                                                     font=(
-                                                         'Helvetica', 15, 'italic')
-                                                     )
+        self.question_text = self.canvas.create_text(400, 125, text="Question here", width=680, fill="black", font=('Helvetica', 15, 'italic'))
         self.canvas.grid(row=2, column=0, columnspan=2, pady=50)
         self.display_question()
 
