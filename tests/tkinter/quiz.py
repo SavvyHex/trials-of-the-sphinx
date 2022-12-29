@@ -39,7 +39,42 @@ class QuizApp:
 
     def display_question(self):
         self.question = Question()
-        self.canvas.itemconfig(self.question_text, text=q_text)
+        self.canvas.itemconfig(self.question_text, text=self.question.question)
+
+    def radio_buttons(self):
+        choice_list = list()
+        y = 220
+        for option in self.question.options:
+            radio_btn = Radiobutton(self.window, text="", variable=self.user_answer, value='', font=("ariel", 14))
+            choice_list.append(radio_btn)
+            radio_btn.place(x=200, y=y)
+            y += 40
+        return choice_list
+
+    def display_options(self):
+        val = 0
+        self.user_answer.set(None)
+        for option in self.question.options:
+            self.opts[val]['text'] = option
+            self.opts[val]['value'] = option
+            val += 1
+
+    def next_btn(self):
+        if self.question.ans == self.user_answer.get():
+            self.feedback["fg"] = "green"
+            self.feedback["text"] = 'Correct answer! \U0001F44D'
+        else:
+            self.feedback['fg'] = 'red'
+            self.feedback['text'] = ('\u274E Oops! \n'
+                                        f'The right answer is: {self.question.ans}')
+
+    def buttons(self):
+        next_button = Button(self.window, text="Next", command=self.next_btn,
+                            width=10, bg="green", fg="white", font=("ariel", 16, "bold"))
+        next_button.place(x=350, y=460)
+        quit_button = Button(self.window, text="Quit", command=self.window.destroy,
+                            width=5, bg="red", fg="white", font=("ariel", 16, " bold"))
+        quit_button.place(x=700, y=50)
 
 if __name__ == "__main__":
     QuizApp()
