@@ -31,9 +31,9 @@ class StrucQuizForm():
         b = Label(self.window, text="Number of Questions").grid(row=1, column=0)
 
         self.sub = StringVar()
-        self.n_q = StringVar()
+        self.n_q = IntVar()
         self.sub.set("General Knowledge")
-        self.n_q.set("5")
+        self.n_q.set(5)
         self.pick_sub = OptionMenu(self.window, self.sub, *["Science", "General Knowledge"]).grid(row=0, column=1)
         self.num_questions = OptionMenu(self.window, self.n_q, *list(map(str, list(range(5, 51, 5))))).grid(row=1, column=1)
         
@@ -42,7 +42,7 @@ class StrucQuizForm():
 
     def submit(self):
         self.window.destroy()
-        StructuredQuiz(self.n_q, self.sub)
+        StructuredQuiz(self.n_q.get(), self.sub.get())
 
 if __name__ == "__main__":
     StrucQuizForm()
