@@ -1,25 +1,6 @@
 from tkinter import *
 from structured_quiz import StructuredQuiz
-
-class RegForm():
-    def __init__(self) -> None:
-        self.window = Tk()
-        self.window.title("Registration Form")
-        self.window.geometry("300x300")
-
-        a = Label(self.window ,text = "Username").grid(row = 0,column = 0)
-        b = Label(self.window ,text = "Full Name").grid(row = 1,column = 0)
-        c = Label(self.window ,text = "Password").grid(row = 2,column = 0)
-        d = Label(self.window ,text = "Repeat Password").grid(row = 3,column = 0)
-        a1 = Entry(self.window).grid(row = 0,column = 1)
-        b1 = Entry(self.window).grid(row = 1,column = 1)
-        c1 = Entry(self.window).grid(row = 2,column = 1)
-        d1 = Entry(self.window).grid(row = 3,column = 1)
-
-        self.window.mainloop()
-
-    def save_input(self):
-        pass
+from cryptography.fernet import Fernet
 
 class StrucQuizForm():
     def __init__(self) -> None:
@@ -43,6 +24,3 @@ class StrucQuizForm():
     def submit(self):
         self.window.destroy()
         StructuredQuiz(self.n_q.get(), self.sub.get())
-
-if __name__ == "__main__":
-    RegForm()
