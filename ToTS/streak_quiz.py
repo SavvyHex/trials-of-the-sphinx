@@ -83,6 +83,3 @@ class StreakQuiz:
         self.display_result()
         self.window.destroy()
         QuizApp()
-
-if __name__ == "__main__":
-    StreakQuiz()

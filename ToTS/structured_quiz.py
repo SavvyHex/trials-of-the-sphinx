@@ -106,6 +106,3 @@ class StructuredQuiz:
         self.display_result()
         self.window.destroy()
         QuizApp()
-
-if __name__ == "__main__":
-    StructuredQuiz(sub="sci")
