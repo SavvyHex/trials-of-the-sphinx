@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
-from question import Question
+from math_question import Question
 
 class StreakQuiz:
     def __init__(self) -> None:
