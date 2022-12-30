@@ -71,17 +71,17 @@ class StructuredQuiz:
 
     def next_btn(self):
         self.question_number += 1
+        if str(self.question.ans) == str(self.user_answer.get()):
+            self.feedback["fg"] = "green"
+            self.feedback["text"] = 'Correct answer!'
+            self.correct += 1
+        else:
+            self.feedback['fg'] = 'red'
+            self.feedback['text'] = (f'WRONG! The right answer is: {self.question.ans}')
+            self.wrong += 1
         if self.question_number < self.num:
-            if str(self.question.ans) == str(self.user_answer.get()):
-                self.feedback["fg"] = "green"
-                self.feedback["text"] = 'Correct answer!'
-                self.correct += 1
-                self.display_options()
-                self.display_question()
-            else:
-                self.feedback['fg'] = 'red'
-                self.feedback['text'] = (f'WRONG! The right answer is: {self.question.ans}')
-                self.wrong += 1
+            self.display_question()
+            self.display_options()
         else:
             self.quit()
 
