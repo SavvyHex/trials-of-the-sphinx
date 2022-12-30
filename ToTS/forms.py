@@ -23,4 +23,4 @@ class StrucQuizForm():
 
     def submit(self):
         self.window.destroy()
-        StructuredQuiz(self.n_q.get(), self.sub.get())
+        StructuredQuiz(self.n_q.get(), "gk" if self.sub.get() == "General Knowledge" else "sci")
