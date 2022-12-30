@@ -70,11 +70,9 @@ class StreakQuiz:
             self.score = 0
 
     def buttons(self):
-        next_button = Button(self.window, text="Next", command=self.next_btn,
-                            width=10, bg="green", fg="white", font=("Helvetica", 16, "bold"))
+        next_button = Button(self.window, text="Next", command=self.next_btn, width=10, bg="green", fg="white", font=("Helvetica", 16, "bold"))
         next_button.place(x=350, y=460)
-        quit_button = Button(self.window, text="Quit", command=self.quit,
-                            width=5, bg="red", fg="white", font=("Helvetica", 16, " bold"))
+        quit_button = Button(self.window, text="Quit", command=self.quit, width=5, bg="red", fg="white", font=("Helvetica", 16, " bold"))
         quit_button.place(x=700, y=50)
 
     def display_result(self):
