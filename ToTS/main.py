@@ -9,12 +9,12 @@ class QuizApp():
         self.window.geometry("620x450")
 
         self.canvas = tkinter.Canvas(width=620, height=450)
+        self.canvas.pack(expand=True, fill=BOTH)
 
-        ph = PhotoImage(file="ToTS\main_bg.png")
-        bgimg = Label(self.window, image=ph)
-        bgimg.place(x=0, y=0)
+        bg = PhotoImage(file="ToTS\main_bg.png")
+        self.canvas.create_image(0,0,image=bg, anchor="nw")
         
-        self.name = self.canvas.create_text(400, 70, text="Trials of the Sphinx", width=680, fill="black", font=('Helvetica', 20, 'bold'))
+        self.name = self.canvas.create_text(300, 70, text="Trials of the Sphinx", width=680, fill="black", font=('Helvetica', 20, 'bold'))
         self.canvas.grid(row=2, column=0, columnspan=2, pady=30)
         self.buttons()
 
