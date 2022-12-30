@@ -35,7 +35,7 @@ class StructuredQuiz:
         self.display_options()
 
         self.feedback = Label(self.window, pady=10, font=("Helvetica", 15, "bold"))
-        self.feedback.place(x=150, y=350)
+        self.feedback.place(x=100, y=350)
 
         self.buttons()
 
@@ -51,7 +51,7 @@ class StructuredQuiz:
             self.questions.append(qu)
 
     def display_title(self):
-        title = Label(self.window, text="Structured Quiz!", width=32, bg="teal", fg="orange", font=("Helvetica", 24, "bold"))
+        title = Label(self.window, text="Structured Quiz!", width=34, bg="teal", fg="orange", font=("Helvetica", 24, "bold"))
         title.place(x=0, y=2)
 
     def display_question(self):
