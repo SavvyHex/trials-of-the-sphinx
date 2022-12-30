@@ -79,7 +79,9 @@ class StreakQuiz:
         messagebox.showinfo("SCORE", f"Your score was {self.score}")
 
     def quit(self):
+        from main import QuizApp
         self.display_result()
+        QuizApp()
         self.window.destroy()
 
 if __name__ == "__main__":

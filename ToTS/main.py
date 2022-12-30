@@ -13,5 +13,12 @@ class QuizApp():
 
         self.window.mainloop()
 
+    def buttons(self) -> None:
+        streakbutton = tkinter.Button(self.window, text="Streak Quiz")
+
+    def start_streak(self) -> None:
+        StreakQuiz()
+        self.window.destroy()
+
 if __name__ == "__main__":
     QuizApp()
