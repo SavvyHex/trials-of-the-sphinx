@@ -31,7 +31,7 @@ class StreakQuiz:
         self.window.mainloop()
     
     def display_title(self):
-        title = Label(self.window, text="Streak Quiz!", width=63, bg="teal", fg="orange", font=("Helvetica", 24, "bold"))
+        title = Label(self.window, text="Math Streak Quiz!", width=63, bg="teal", fg="orange", font=("Helvetica", 24, "bold"))
         title.place(x=0, y=2)
 
     def display_question(self):
@@ -74,7 +74,7 @@ class StreakQuiz:
         next_button.place(x=350, y=460)
         quit_button = Button(self.window, text="Quit", command=self.quit, width=5, bg="red", fg="white", font=("Helvetica", 16, " bold"))
         quit_button.place(x=700, y=50)
-    
+
     def display_result(self):
         messagebox.showinfo("SCORE", f"Your score was {self.score}")
 
