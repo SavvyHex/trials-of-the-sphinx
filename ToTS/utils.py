@@ -1,7 +1,6 @@
 import requests
 from tkinter import messagebox
 import html
-import random
 
 def get_questions_from_net(number:int, category:str):
     parameters = {

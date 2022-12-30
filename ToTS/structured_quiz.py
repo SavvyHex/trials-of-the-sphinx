@@ -42,7 +42,7 @@ class StructuredQuiz:
         questions_raw = get_questions_from_net(n, cat)
         for q in questions_raw:
             ops = [make_sense(q["correct_answer"])]+list(map(make_sense, q["incorrect_answers"]))
-            random.shuffle(ops)
+            shuffle(ops)
             qu = Question(make_sense(q["question"]), ops, make_sense(q["correct_answer"]))
             self.questions.append(qu)
 
