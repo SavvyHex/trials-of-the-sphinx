@@ -1,5 +1,7 @@
 import requests
 from tkinter import messagebox
+import html
+import random
 
 def get_questions_from_net(number:int, category:str):
     parameters = {
@@ -15,3 +17,6 @@ def get_questions_from_net(number:int, category:str):
         exit()
 
     return response.json()["results"]
+
+def make_sense(question_raw:str):
+    return html.unescape(question_raw)

@@ -1,7 +1,8 @@
+from random import shuffle
 from tkinter import *
 from tkinter import messagebox
 from fixed_question import Question
-from utils import get_questions_from_net
+from utils import *
 
 class StructuredQuiz:
     def __init__(self, num:int=10, sub:str="") -> None:
@@ -40,7 +41,9 @@ class StructuredQuiz:
         self.questions = list()
         questions_raw = get_questions_from_net(n, cat)
         for q in questions_raw:
-            qu = Question(q["question"], [q["correct_answer"]]+q["incorrect_answers"], q["correct_answer"])
+            ops = [make_sense(q["correct_answer"])]+list(map(make_sense, q["incorrect_answers"]))
+            random.shuffle(ops)
+            qu = Question(make_sense(q["question"]), ops, make_sense(q["correct_answer"]))
             self.questions.append(qu)
 
     def display_title(self):
@@ -92,7 +95,11 @@ class StructuredQuiz:
         quit_button.place(x=700, y=50)
 
     def display_result(self):
-        messagebox.showinfo("RESULT", f"Correct : {self.correct}\nWrong : {self.wrong}\nAccuracy : {int(self.correct/self.num*100)}")
+        try:
+            accuracy = int(self.correct/self.question_number*100)
+        except ZeroDivisionError:
+            accuracy = 0
+        messagebox.showinfo("RESULT", f"Correct : {self.correct}\nWrong : {self.wrong}\nAccuracy : {accuracy}")
 
     def quit(self):
         from main import QuizApp
@@ -101,4 +108,4 @@ class StructuredQuiz:
         QuizApp()
 
 if __name__ == "__main__":
-    StructuredQuiz()
+    StructuredQuiz(sub="sci")
