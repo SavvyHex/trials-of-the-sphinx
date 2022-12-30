@@ -31,14 +31,14 @@ class StreakQuiz:
         self.display_options()
 
         self.feedback = Label(self.window, pady=10, font=("Helvetica", 15, "bold"))
-        self.feedback.place(x=250, y=380)
+        self.feedback.place(x=25, y=380)
 
         self.buttons()
 
         self.window.mainloop()
     
     def display_title(self):
-        title = Label(self.window, text="Math Streak Quiz!", width=25, bg="teal", fg="orange", font=("Helvetica", 24, "bold"))
+        title = Label(self.window, text="Math Streak Quiz!", width=27, bg="teal", fg="orange", font=("Helvetica", 24, "bold"))
         title.place(x=0, y=2)
 
     def display_question(self):
