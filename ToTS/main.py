@@ -15,6 +15,8 @@ class QuizApp():
         self.canvas.create_image(0,0,image=bg, anchor="nw")
         
         self.name = self.canvas.create_text(300, 70, text="Trials of the Sphinx", width=680, fill="black", font=('Helvetica', 20, 'bold'))
+        name_box = self.canvas.create_rectangle(self.canvas.bbox(self.name), fill="white")
+        self.canvas.tag_lower(name_box, self.name)
         self.canvas.grid(row=2, column=0, columnspan=2, pady=30)
         self.buttons()
 

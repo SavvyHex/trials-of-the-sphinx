@@ -9,13 +9,19 @@ class StreakQuiz:
 
         self.window = Tk()
         self.window.title("Trials of the Sphinx (Streak)")
-        self.window.geometry("620x450")
+        self.window.geometry("502x450")
 
         self.display_title()
 
-        self.canvas = Canvas(width=620, height=450)
+        self.canvas = Canvas(width=502, height=450)
+        self.canvas.pack(expand=True, fill=BOTH)
 
-        self.question_text = self.canvas.create_text(350, 100, text="Question here", width=680, fill="black", font=('Helvetica', 20, 'italic'))
+        bg = PhotoImage(file="ToTS\math_bg.png")
+        self.canvas.create_image(0,0,image=bg, anchor="nw")
+
+        self.question_text = self.canvas.create_text(251, 80, text="Question here", width=435, fill="black", font=('Helvetica', 20, 'italic'))
+        question_box = self.canvas.create_rectangle(self.canvas.bbox(self.question_text), fill="white")
+        self.canvas.tag_lower(question_box, self.question_text)
         self.canvas.grid(row=2, column=0, columnspan=2, pady=50)
         self.display_question()
 
@@ -32,7 +38,7 @@ class StreakQuiz:
         self.window.mainloop()
     
     def display_title(self):
-        title = Label(self.window, text="Math Streak Quiz!", width=40, bg="teal", fg="orange", font=("Helvetica", 24, "bold"))
+        title = Label(self.window, text="Math Streak Quiz!", width=25, bg="teal", fg="orange", font=("Helvetica", 24, "bold"))
         title.place(x=0, y=2)
 
     def display_question(self):
@@ -45,7 +51,7 @@ class StreakQuiz:
         for option in self.question.options:
             radio_btn = Radiobutton(self.window, text="", variable=self.user_answer, value='', font=("Helvetica", 14))
             choice_list.append(radio_btn)
-            radio_btn.place(x=200, y=y)
+            radio_btn.place(x=150, y=y)
             y += 40
         return choice_list
 
@@ -72,9 +78,9 @@ class StreakQuiz:
 
     def buttons(self):
         next_button = Button(self.window, text="Next", command=self.next_btn, width=10, bg="green", fg="white", font=("Helvetica", 16, "bold"))
-        next_button.place(x=300, y=350)
+        next_button.place(x=251, y=350)
         quit_button = Button(self.window, text="Quit", command=self.quit, width=5, bg="red", fg="white", font=("Helvetica", 16, " bold"))
-        quit_button.place(x=500, y=50)
+        quit_button.place(x=350, y=50)
 
     def display_result(self):
         messagebox.showinfo("SCORE", f"Your score was {self.score}")

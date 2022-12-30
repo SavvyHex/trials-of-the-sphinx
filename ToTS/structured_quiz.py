@@ -14,14 +14,18 @@ class StructuredQuiz:
 
         self.window = Tk()
         self.window.title("Trials of the Sphinx (Structured)")
-        self.window.geometry("850x530")
+        self.window.geometry("640x480")
 
         self.questions:list[Question] = list()
         self.get_questions(self.num, sub)
         self.display_title()
 
-        self.canvas = Canvas(width=800, height=250)
-        self.question_text = self.canvas.create_text(400, 125, text="Question here", width=680, fill="black", font=('Helvetica', 20, 'italic'))
+        self.canvas = Canvas(width=640, height=480)
+        self.canvas.pack(expand=True, fill=BOTH)
+
+        bg = PhotoImage(file="ToTS\struc_bg.png")
+        self.canvas.create_image(0,0,image=bg, anchor="nw")
+        self.question_text = self.canvas.create_text(320, 80, text="Question here", width=480, fill="white", font=('Helvetica', 20, 'italic'))
         self.canvas.grid(row=2, column=0, columnspan=2, pady=50)
         self.display_question()
 
@@ -31,7 +35,7 @@ class StructuredQuiz:
         self.display_options()
 
         self.feedback = Label(self.window, pady=10, font=("Helvetica", 15, "bold"))
-        self.feedback.place(x=300, y=380)
+        self.feedback.place(x=150, y=350)
 
         self.buttons()
 
@@ -47,7 +51,7 @@ class StructuredQuiz:
             self.questions.append(qu)
 
     def display_title(self):
-        title = Label(self.window, text="Structured Quiz!", width=63, bg="teal", fg="orange", font=("Helvetica", 24, "bold"))
+        title = Label(self.window, text="Structured Quiz!", width=32, bg="teal", fg="orange", font=("Helvetica", 24, "bold"))
         title.place(x=0, y=2)
 
     def display_question(self):
@@ -56,7 +60,7 @@ class StructuredQuiz:
 
     def radio_buttons(self):
         choice_list = []
-        y_pos = 220
+        y_pos = 180
         while len(choice_list) < 4:
             radio_btn = Radiobutton(self.window, text="", variable=self.user_answer, value='', font=("ariel", 14))
             choice_list.append(radio_btn)
@@ -90,9 +94,9 @@ class StructuredQuiz:
 
     def buttons(self):
         next_button = Button(self.window, text="Next", command=self.next_btn, width=10, bg="green", fg="white", font=("Helvetica", 16, "bold"))
-        next_button.place(x=350, y=460)
+        next_button.place(x=320, y=420)
         quit_button = Button(self.window, text="Quit", command=self.quit, width=5, bg="red", fg="white", font=("Helvetica", 16, " bold"))
-        quit_button.place(x=700, y=50)
+        quit_button.place(x=500, y=50)
 
     def display_result(self):
         try:
