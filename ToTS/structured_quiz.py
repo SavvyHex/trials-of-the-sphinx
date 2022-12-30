@@ -41,7 +41,6 @@ class StructuredQuiz:
         questions_raw = get_questions_from_net(n, cat)
         for q in questions_raw:
             qu = Question(q["question"], [q["correct_answer"]]+q["incorrect_answers"], q["correct_answer"])
-            print(qu)
             self.questions.append(qu)
 
     def display_title(self):
