@@ -1,5 +1,6 @@
 import tkinter
 from streak_quiz import StreakQuiz
+from forms import *
 
 class QuizApp():
     def __init__(self) -> None:
@@ -17,10 +18,16 @@ class QuizApp():
     def buttons(self) -> None:
         streakbutton = tkinter.Button(self.window, text="Math Streak Quiz", command=self.start_streak, width=15, bg="blue", fg="white", font=("Helvetica", 16, " bold"))
         streakbutton.place(x=320, y=200)
+        strucbutton = tkinter.Button(self.window, text="Structured Quiz", command=self.structured_quiz, width=15, bg="green", fg="white", font=("Helvetica", 16, " bold"))
+        strucbutton.place(x=320, y=240)
 
     def start_streak(self) -> None:
         self.window.destroy()
         StreakQuiz()
+
+    def structured_quiz(self) -> None:
+        self.window.destroy()
+        StrucQuizForm()
 
 if __name__ == "__main__":
     QuizApp()

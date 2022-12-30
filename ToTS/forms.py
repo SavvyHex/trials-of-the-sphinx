@@ -45,5 +45,4 @@ class StrucQuizForm():
         StructuredQuiz(self.n_q.get(), self.sub.get())
 
 if __name__ == "__main__":
-    StrucQuizForm()
-#    RegForm()
+    RegForm()
