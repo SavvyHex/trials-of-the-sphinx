@@ -78,11 +78,11 @@ class StructuredQuiz:
                 self.feedback["text"] = 'Correct answer!'
                 self.correct += 1
                 self.display_options()
+                self.display_question()
             else:
                 self.feedback['fg'] = 'red'
                 self.feedback['text'] = (f'WRONG! The right answer is: {self.question.ans}')
                 self.wrong += 1
-            self.display_question()
         else:
             self.quit()
 
