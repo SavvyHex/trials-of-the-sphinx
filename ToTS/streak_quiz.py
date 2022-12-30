@@ -16,7 +16,7 @@ class StreakQuiz:
         self.canvas = Canvas(width=502, height=450)
         self.canvas.pack(expand=True, fill=BOTH)
 
-        bg = PhotoImage(file="ToTS\math_bg.png")
+        bg = PhotoImage(file="./math_bg.png")
         self.canvas.create_image(0,0,image=bg, anchor="nw")
 
         self.question_text = self.canvas.create_text(251, 80, text="Question here", width=435, fill="black", font=('Helvetica', 20, 'italic'))

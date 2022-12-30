@@ -23,7 +23,7 @@ class StructuredQuiz:
         self.canvas = Canvas(width=640, height=480)
         self.canvas.pack(expand=True, fill=BOTH)
 
-        bg = PhotoImage(file="ToTS\struc_bg.png")
+        bg = PhotoImage(file="./struc_bg.png")
         self.canvas.create_image(0,0,image=bg, anchor="nw")
         self.question_text = self.canvas.create_text(320, 80, text="Question here", width=480, fill="white", font=('Helvetica', 20, 'italic'))
         self.canvas.grid(row=2, column=0, columnspan=2, pady=50)

@@ -11,7 +11,7 @@ class QuizApp():
         self.canvas = tkinter.Canvas(width=620, height=450)
         self.canvas.pack(expand=True, fill=BOTH)
 
-        bg = PhotoImage(file="ToTS\main_bg.png")
+        bg = PhotoImage(file="./main_bg.png")
         self.canvas.create_image(0,0,image=bg, anchor="nw")
         
         self.name = self.canvas.create_text(300, 70, text="Trials of the Sphinx", width=680, fill="black", font=('Helvetica', 20, 'bold'))
