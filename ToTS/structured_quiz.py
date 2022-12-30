@@ -17,7 +17,6 @@ class StructuredQuiz:
 
         self.questions:list[Question] = list()
         self.get_questions(self.num, sub)
-        print(*self.questions)
         self.display_title()
 
         self.canvas = Canvas(width=800, height=250)
@@ -65,8 +64,7 @@ class StructuredQuiz:
     def display_options(self):
         val = 0
         self.user_answer.set(None)
-        question:Question = self.questions[self.question_number]
-        for option in question.options:
+        for option in self.question.options:
             self.opts[val]['text'] = option
             self.opts[val]['value'] = option
             val += 1
