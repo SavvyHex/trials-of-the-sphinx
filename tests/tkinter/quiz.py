@@ -31,7 +31,7 @@ class QuizApp:
         self.window.mainloop()
     
     def display_title(self):
-        title = Label(self.window, text="Trials of the Sphinx", width=63, bg="green", fg="white", font=("Helvetica", 20, "bold"))
+        title = Label(self.window, text="Trials of the Sphinx", width=63, bg="teal", fg="orange", font=("Helvetica", 20, "bold"))
         title.place(x=0, y=2)
 
     def display_question(self):
