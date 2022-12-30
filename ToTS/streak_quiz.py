@@ -9,11 +9,16 @@ class StreakQuiz:
 
         self.window = Tk()
         self.window.title("Trials of the Sphinx (Streak)")
-        self.window.geometry("850x530")
+        self.window.geometry("620x450")
 
         self.display_title()
 
-        self.canvas = Canvas(width=800, height=250)
+        self.canvas = Canvas(width=620, height=450)
+
+        ph = PhotoImage(file="ToTS\main_bg.png")
+        bgimg = Label(self.window, image=ph)
+        bgimg.place(x=0, y=0)
+
         self.question_text = self.canvas.create_text(400, 125, text="Question here", width=680, fill="black", font=('Helvetica', 20, 'italic'))
         self.canvas.grid(row=2, column=0, columnspan=2, pady=50)
         self.display_question()

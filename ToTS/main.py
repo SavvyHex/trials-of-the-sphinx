@@ -8,7 +8,7 @@ class QuizApp():
         self.window.title("Trials of the Sphinx")
         self.window.geometry("620x450")
 
-        self.canvas = tkinter.Canvas(width=800, height=250)
+        self.canvas = tkinter.Canvas(width=620, height=450)
 
         ph = PhotoImage(file="ToTS\main_bg.png")
         bgimg = Label(self.window, image=ph)
