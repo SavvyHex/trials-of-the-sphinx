@@ -40,8 +40,9 @@ class StructuredQuiz:
         self.questions = list()
         questions_raw = get_questions_from_net(n, cat)
         for q in questions_raw:
-            options = [q["correct_answer"]].extend(q["incorrect_answers"])
-            self.questions.append(Question(q["question"], options, q["correct_answer"]))
+            qu = Question(q["question"], [q["correct_answer"]]+q["incorrect_answers"], q["correct_answer"])
+            print(qu)
+            self.questions.append(qu)
 
     def display_title(self):
         title = Label(self.window, text="Structured Quiz!", width=63, bg="teal", fg="orange", font=("Helvetica", 24, "bold"))
