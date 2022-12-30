@@ -81,8 +81,8 @@ class StreakQuiz:
     def quit(self):
         from main import QuizApp
         self.display_result()
-        QuizApp()
         self.window.destroy()
+        QuizApp()
 
 if __name__ == "__main__":
     StreakQuiz()
