@@ -2,13 +2,13 @@ from tkinter import *
 from tkinter import messagebox
 from question import Question
 
-class QuizApp:
+class StreakQuiz:
     def __init__(self) -> None:
 
         self.score = 0
 
         self.window = Tk()
-        self.window.title("Trials of the Sphinx")
+        self.window.title("Trials of the Sphinx (Streak)")
         self.window.geometry("850x530")
 
         self.display_title()
@@ -85,4 +85,4 @@ class QuizApp:
         self.window.destroy()
 
 if __name__ == "__main__":
-    QuizApp()
+    StreakQuiz()
