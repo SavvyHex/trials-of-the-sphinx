@@ -1,7 +1,7 @@
 import requests
 from tkinter import messagebox
 
-def get_questions(number:int, category:str):
+def get_questions_from_net(number:int, category:str):
     parameters = {
         "amount": number,
         "type": "multiple",
