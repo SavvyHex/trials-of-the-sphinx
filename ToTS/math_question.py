@@ -1,4 +1,5 @@
 import random
+from utils import make_fair
 
 class Question:
     def __init__(self) -> None:
@@ -8,12 +9,6 @@ class Question:
         self.get_ans()
         self.get_options()
         self.question = f"What is {self.a}{self.op}{self.b}?"
-
-    def make_fair(self, ini_ans:float) -> float:
-        ans = str(ini_ans)
-        if(len(ans)>5):
-            ans = ans[:5]
-        return float(ans)
 
     def get_ans(self) -> None:
         op = self.op
@@ -25,7 +20,7 @@ class Question:
             self.ans = self.a * self.b
         elif op == "/":
             self.ans = self.a / self.b
-        self.ans = self.make_fair(self.ans)
+        self.ans = make_fair(self.ans)
 
     def get_options(self) -> None:
         indices = [0, 1, 2, 3]

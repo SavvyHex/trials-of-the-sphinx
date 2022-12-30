@@ -19,3 +19,9 @@ def get_questions_from_net(number:int, category:str):
 
 def make_sense(question_raw:str):
     return html.unescape(question_raw)
+
+def make_fair(self, ini_ans:float) -> float:
+    ans = str(ini_ans)
+    if(len(ans)>5):
+        ans = ans[:5]
+    return float(ans)
