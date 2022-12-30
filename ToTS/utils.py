@@ -1,4 +1,8 @@
-import requests
+import pip
+try:
+    import requests
+except ModuleNotFoundError:
+    pip.main(["install", "requests"])
 from tkinter import messagebox
 import html
 
