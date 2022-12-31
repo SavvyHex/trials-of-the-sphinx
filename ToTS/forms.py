@@ -88,6 +88,3 @@ class LoginForm():
             QuizApp()
         else:
             messagebox.showinfo("ERROR!", "Incorrect username/password")
-
-if __name__ == "__main__":
-    RegForm()
