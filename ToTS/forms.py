@@ -1,6 +1,5 @@
 from tkinter import *
 from structured_quiz import StructuredQuiz
-from cryptography.fernet import Fernet
 
 class StrucQuizForm():
     def __init__(self) -> None:
