@@ -4,3 +4,4 @@ highscore.txt
 *.spec
 dist
 build
+user_info.txt

@@ -1,3 +1,4 @@
+import os
 import tkinter
 from streak_quiz import StreakQuiz
 from forms import *
@@ -37,4 +38,7 @@ class QuizApp():
         StrucQuizForm()
 
 if __name__ == "__main__":
-    QuizApp()
+    if "user_info.txt" in os.listdir():
+        LoginForm()
+    else:
+        RegForm()
